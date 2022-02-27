@@ -1,0 +1,88 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+// to center the h1
+header {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: white;
+    font-size: 3rem;
+  }
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    $bodyBackgroundColorFrom,
+    $bodyBackgroundColorTo
+  );
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    div .formFrame {
+      width: 300px;
+      height: 400px;
+      border: solid 2px black;
+    }
+
+    #date {
+      flex-direction: row;
+    }
+
+    input {
+      margin: 10px 5px;
+      border: solid 2px;
+    }
+
+    input[type="number"] {
+      width: 50px;
+    }
+
+    #detail {
+      margin-top: 10px;
+    }
+
+    //   let input[type=number] remove its arrow
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    label {
+      color: $labelColor;
+      font-size: 1.2rem;
+    }
+
+    button {
+      margin-top: 25px;
+      cursor: pointer;
+      background-color: $buttonBackgroundColor;
+      color: white;
+      height: 25px;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      background-color: $buttonBackgroundColorHover;
+    }
+  }
+
+  section{
+      p{
+          color: white;
+      }
+  }
+}
