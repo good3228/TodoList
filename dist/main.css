@@ -4,4 +4,19 @@
   box-sizing: border-box;
 }
 
+header {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header h1 {
+  color: white;
+  font-size: 3rem;
+}
+
+body {
+  background: linear-gradient(90deg, #6818b9, #6d74fb);
+}
+
 /*# sourceMappingURL=main.css.map */
