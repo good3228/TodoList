@@ -2,6 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 header {
@@ -16,7 +17,54 @@ header h1 {
 }
 
 body {
-  background: linear-gradient(90deg, #6818b9, #6d74fb);
+  background: linear-gradient(90deg, #6818b9, #898ef6);
+}
+body form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body form div {
+  display: flex;
+  flex-direction: column;
+}
+body form div .formFrame {
+  width: 300px;
+  height: 400px;
+  border: solid 2px black;
+}
+body form #date {
+  flex-direction: row;
+}
+body form input {
+  margin: 10px 5px;
+  border: solid 2px;
+}
+body form input[type=number] {
+  width: 50px;
+}
+body form #detail {
+  margin-top: 10px;
+}
+body form input::-webkit-outer-spin-button,
+body form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body form label {
+  color: #d7fffc;
+  font-size: 1.2rem;
+}
+body form button {
+  margin-top: 25px;
+  cursor: pointer;
+  background-color: #1e20a6;
+  color: white;
+  height: 25px;
+  border-radius: 10px;
+}
+body form button:hover {
+  background-color: #131471;
 }
 
 /*# sourceMappingURL=main.css.map */
