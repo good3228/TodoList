@@ -4,23 +4,32 @@ add.addEventListener("click", (e) => {
   e.preventDefault();
 
   // take out the data we input separately
+  console.log(e.target.parentElement.children[1]);
   let form = e.target.parentElement;
-  let title = form.children[1];
-  let month = form.children[2].children[0];
-  let date = form.children[2].children[1];
-  let detail = form.children[4];
-  console.log(detail);
+  let title = form.children[1].value;
+  let month = form.children[2].children[0].value;
+  let date = form.children[2].children[1].value;
+  let detail = form.children[4].value;
+  console.log(title);
 
   // create a todo
-    let todo = document.createElement("div");
-    let todoTitle = document.createElement("p");
-    todoTitle.innerHTML = title;
-    let todoDate = document.createElement("p");
-    todoDate.innerHTML = month + "/" + date;
-    let todoDetail = document.createElement("p");
-    todoDetail.innerHTML= detail;
+  let todo = document.createElement("div");
 
-    todo.appendChild(todoTitle);
-    todo.appendChild(todoDate);
-    todo.appendChild(todoDetail);
+  let todoTitle = document.createElement("p");
+  todoTitle.classList.add("todoTitle");
+  todoTitle.innerText = title;
+
+  let todoDate = document.createElement("p");
+  todoDate.classList.add("todoDate");
+  todoDate.innerText = month + " / " + date;
+
+  let todoDetail = document.createElement("p");
+  todoDetail.classList.add("todoDetail");
+  todoDetail.innerText = detail;
+
+  todo.appendChild(todoTitle);
+  todo.appendChild(todoDate);
+  todo.appendChild(todoDetail);
+
+  section.appendChild(todo);
 });
