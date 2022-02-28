@@ -124,11 +124,23 @@ body {
     }
 
     button.complete:hover{
-        background-color: rgba(8, 144, 8, 0.923);
+        background-color: rgba(9, 158, 9, 0.923);
+    }
+
+    button.complete:active{
+        background-color: rgba(6, 91, 6, 0.923);
     }
 
     button.trash {
       background-color: rgba(255, 0, 0, 0.704);
+    }
+
+    button.trash:hover{
+        background-color: rgba(176, 0, 0, 0.82);
+    }
+
+    button.trash:active{
+        background-color: rgba(132, 0, 0, 0.704);
     }
   }
 }
