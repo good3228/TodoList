@@ -78,6 +78,7 @@ body section div.todo {
   border: solid black 1px;
   margin-bottom: 0.8rem;
   display: flex;
+  transition: 0.1s all;
 }
 body section p {
   text-align: center;
@@ -97,11 +98,11 @@ body section button {
   padding: 0.25rem 0.5rem;
   color: white;
 }
+body section button i {
+  pointer-events: none;
+}
 body section button.complete {
   background-color: rgba(12, 210, 12, 0.923);
-}
-body section button.complete i {
-  pointer-events: none;
 }
 body section button.trash {
   background-color: rgba(255, 0, 0, 0.704);
@@ -119,6 +120,14 @@ body section button.trash {
   }
   to {
     transform: scale(1);
+  }
+}
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }
 

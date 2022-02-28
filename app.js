@@ -12,6 +12,15 @@ add.addEventListener("click", (e) => {
   let detail = form.children[4].value;
   console.log(title);
 
+  // data validation in the form
+  if (
+    title === "" ||
+    !(parseInt(month) >= 1 && parseInt(month) <= 12) ||
+    !(parseInt(date) >= 1 && parseInt(date) <= 12)
+  ) {
+    alert("Please check the input");
+    return;
+  }
   // create a todo
   let todo = document.createElement("div");
   todo.classList.add("todo");
@@ -34,20 +43,32 @@ add.addEventListener("click", (e) => {
   let completeButton = document.createElement("button");
   completeButton.classList.add("complete");
   completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
-// add event listerner to complete button
-    completeButton.addEventListener('click', e => { 
-        console.log(e.target.parentElement);
-        todo.classList.add('done');
-    })
+
   let trashButton = document.createElement("button");
   trashButton.classList.add("trash");
   trashButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
+  // add event listerner to complete button
+  completeButton.addEventListener("click", (e) => {
+    console.log(e.target.parentElement);
+    todo.classList.toggle("done");
+    // if there is done inside, delete the 'done' class. Otherwise, add 'done' inside the classList.
+  });
+
+  // add event listener to trash button
+  trashButton.addEventListener("click", (e) => {
+    let todoItem = e.target.parentElement;
+    todoItem.addEventListener("animationend", () => {
+      todoItem.remove();
+    });
+    todoItem.style.animation = "scaleDown 0.25s forwards";
+  });
 
   //
   todo.appendChild(completeButton);
   todo.appendChild(trashButton);
 
-    todo.style.animation = "scaleUp 0.3s forwards";
+  todo.style.animation = "scaleUp 0.3s forwards";
   //   todo.appendChild(todoDetail);
   section.appendChild(todo);
 });

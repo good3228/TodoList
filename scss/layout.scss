@@ -114,13 +114,13 @@ body {
       font-size: 1.75rem;
       padding: 0.25rem 0.5rem;
       color: white;
+      i {
+        pointer-events: none;
+      }
     }
 
     button.complete {
       background-color: rgba(12, 210, 12, 0.923);
-      i {
-        pointer-events: none;
-      }
     }
 
     button.trash {
@@ -142,4 +142,13 @@ body {
   to {
     transform: scale(1);
   }
+}
+
+@keyframes scaleDown{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+    }
 }
