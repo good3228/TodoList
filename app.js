@@ -4,7 +4,6 @@ add.addEventListener("click", (e) => {
   e.preventDefault();
 
   // take out the data we input separately
-  console.log(e.target.parentElement.children[1]);
   let form = e.target.parentElement;
   let title = form.children[1].value;
   let month = form.children[2].children[0].value;
@@ -16,17 +15,17 @@ add.addEventListener("click", (e) => {
   if (
     title === "" ||
     !(parseInt(month) >= 1 && parseInt(month) <= 12) ||
-    !(parseInt(date) >= 1 && parseInt(date) <= 12)
+    !(parseInt(date) >= 1 && parseInt(date) <= 31)
   ) {
     alert("Please check the input");
     return;
   }
-// delete the original text in inputs
-    form.children[1].value = "";
-    form.children[2].children[0].value = "";
-    form.children[2].children[1].value = "";
-    form.children[4].value = "";
-    
+  // delete the original text in inputs
+  form.children[1].value = "";
+  form.children[2].children[0].value = "";
+  form.children[2].children[1].value = "";
+  form.children[4].value = "";
+
   // create a todo
   let todo = document.createElement("div");
   todo.classList.add("todo");
@@ -44,6 +43,7 @@ add.addEventListener("click", (e) => {
 
   todo.appendChild(todoTitle);
   todo.appendChild(todoDate);
+  todo.appendChild(todoDetail);
 
   //create green check and trash can
   let completeButton = document.createElement("button");
@@ -65,12 +65,20 @@ add.addEventListener("click", (e) => {
   trashButton.addEventListener("click", (e) => {
     let todoItem = e.target.parentElement;
     todoItem.addEventListener("animationend", () => {
-      todoItem.remove();
+      todoItem.classList.toggle("detail");
     });
     todoItem.style.animation = "scaleDown 0.25s forwards";
   });
 
-  //
+    // add function of show detail when click paragraph
+    todo.addEventListener("click", (e) => {
+        let todoDiv = e.target.parentElement;
+        //   todoDiv.classList.toggle("detail");
+        todo.classList.toggle('detail');
+    });
+
+    
+  // combine button into todo div
   todo.appendChild(completeButton);
   todo.appendChild(trashButton);
 
@@ -78,3 +86,6 @@ add.addEventListener("click", (e) => {
   //   todo.appendChild(todoDetail);
   section.appendChild(todo);
 });
+
+
+

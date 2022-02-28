@@ -80,6 +80,9 @@ body section div.todo {
   display: flex;
   transition: 0.1s all;
 }
+body section div.todo p.todoDetail {
+  display: none;
+}
 body section p {
   text-align: center;
   font-size: 1.75rem;
@@ -89,7 +92,19 @@ body section p {
   padding: 0.15rem 0.1rem;
 }
 body section p.todoTitle {
-  width: 8vw;
+  width: 10vw;
+}
+body section div.detail p.todoDetail {
+  display: block;
+  font-size: 1rem;
+  min-height: 2.25rem;
+  width: 14vw;
+  max-height: 8rem;
+  overflow-y: scroll;
+}
+body section div.detail button {
+  font-size: 1.75rem;
+  padding: 0.25rem 0.5rem;
 }
 body section button {
   border: none;
