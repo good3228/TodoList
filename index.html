@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <!-- link for fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Todo List</title>
   </head>
   <body>
@@ -15,10 +23,10 @@
     <form action="">
       <div class="formFrame">
         <label for="title">Event</label>
-        <input type="text" id="title" required />
+        <input type="text" id="title" value = "Learning" required />
         <div id="date">
-          <input type="number" min="1" max="12" placeholder="Month" required />
-          <input type="number" min="1" max="31" placeholder="Day" required />
+          <input type="number" min="1" max="12" placeholder="Month" value = "1" required />
+          <input type="number" min="1" max="31" placeholder="Day" value = "2" required />
         </div>
         <label for="detail">Detail</label>
         <textarea name="detail" id="detail" cols="11" rows="5"></textarea>

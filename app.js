@@ -14,7 +14,7 @@ add.addEventListener("click", (e) => {
 
   // create a todo
   let todo = document.createElement("div");
-
+  todo.classList.add("todo");
   let todoTitle = document.createElement("p");
   todoTitle.classList.add("todoTitle");
   todoTitle.innerText = title;
@@ -29,7 +29,25 @@ add.addEventListener("click", (e) => {
 
   todo.appendChild(todoTitle);
   todo.appendChild(todoDate);
-  todo.appendChild(todoDetail);
 
+  //create green check and trash can
+  let completeButton = document.createElement("button");
+  completeButton.classList.add("complete");
+  completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+// add event listerner to complete button
+    completeButton.addEventListener('click', e => { 
+        console.log(e.target.parentElement);
+        todo.classList.add('done');
+    })
+  let trashButton = document.createElement("button");
+  trashButton.classList.add("trash");
+  trashButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
+  //
+  todo.appendChild(completeButton);
+  todo.appendChild(trashButton);
+
+    todo.style.animation = "scaleUp 0.3s forwards";
+  //   todo.appendChild(todoDetail);
   section.appendChild(todo);
 });
