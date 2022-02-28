@@ -21,6 +21,12 @@ add.addEventListener("click", (e) => {
     alert("Please check the input");
     return;
   }
+// delete the original text in inputs
+    form.children[1].value = "";
+    form.children[2].children[0].value = "";
+    form.children[2].children[1].value = "";
+    form.children[4].value = "";
+    
   // create a todo
   let todo = document.createElement("div");
   todo.classList.add("todo");
