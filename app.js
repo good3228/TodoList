@@ -8,14 +8,18 @@ add.addEventListener("click", (e) => {
   let title = form.children[1].value;
   let month = form.children[2].children[0].value;
   let date = form.children[2].children[1].value;
-  let detail = form.children[4].value;
+  let hour = form.children[3].children[0].value;
+  let minute = form.children[3].children[1].value;
+  let detail = form.children[5].value;
   console.log(title);
 
   // data validation in the form
   if (
     title === "" ||
     !(parseInt(month) >= 1 && parseInt(month) <= 12) ||
-    !(parseInt(date) >= 1 && parseInt(date) <= 31)
+    !(parseInt(date) >= 1 && parseInt(date) <= 31) ||
+    !(parseInt(hour) >= 0 && parseInt(hour) <= 24) ||
+    !(parseInt(minute) >= 0 && parseInt(minute) <= 60)
   ) {
     alert("Please check the input");
     return;
@@ -24,7 +28,9 @@ add.addEventListener("click", (e) => {
   form.children[1].value = "";
   form.children[2].children[0].value = "";
   form.children[2].children[1].value = "";
-  form.children[4].value = "";
+  form.children[3].children[0].value = "";
+  form.children[3].children[1].value = "";
+  form.children[5].value = "";
 
   // create a todo
   let todo = document.createElement("div");
@@ -37,12 +43,22 @@ add.addEventListener("click", (e) => {
   todoDate.classList.add("todoDate");
   todoDate.innerText = month + " / " + date;
 
+  let todoTime = document.createElement("p");
+  todoTime.classList.add("todoTime");
+  todoTime.innerText = hour + ":" + minute;
+
   let todoDetail = document.createElement("p");
   todoDetail.classList.add("todoDetail");
-  todoDetail.innerText = detail;
+    if (detail == "") {
+        todoDetail.innerText = "No detail of this event.";
+        todoDetail.style = "font-size: 1.25rem; color: gray;"
+    } else {
+        todoDetail.innerText = detail;
+    }
 
   todo.appendChild(todoTitle);
   todo.appendChild(todoDate);
+  todo.appendChild(todoTime);
   todo.appendChild(todoDetail);
 
   //create green check and trash can
@@ -70,14 +86,13 @@ add.addEventListener("click", (e) => {
     todoItem.style.animation = "scaleDown 0.25s forwards";
   });
 
-    // add function of show detail when click paragraph
-    todo.addEventListener("click", (e) => {
-        let todoDiv = e.target.parentElement;
-        //   todoDiv.classList.toggle("detail");
-        todo.classList.toggle('detail');
-    });
+  // add function of show detail when click paragraph
+  todo.addEventListener("click", (e) => {
+    let todoDiv = e.target.parentElement;
+    //   todoDiv.classList.toggle("detail");
+    todo.classList.toggle("detail");
+  });
 
-    
   // combine button into todo div
   todo.appendChild(completeButton);
   todo.appendChild(trashButton);
@@ -86,6 +101,3 @@ add.addEventListener("click", (e) => {
   //   todo.appendChild(todoDetail);
   section.appendChild(todo);
 });
-
-
-

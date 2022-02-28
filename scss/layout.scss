@@ -37,7 +37,8 @@ body {
       border: solid 2px black;
     }
 
-    #date {
+    #date,
+    #time {
       flex-direction: row;
     }
 
@@ -109,7 +110,7 @@ body {
     p.todoTitle {
       width: 10vw;
     }
-
+// styling after click event, shows the detail of todo items
     div.detail {
       p.todoDetail {
         display: block;
@@ -117,6 +118,7 @@ body {
         min-height: 2.25rem;
         width: 14vw;
         max-height: 8rem;
+        max-width: 18rem;
         overflow-y: scroll;
       }
       button {
