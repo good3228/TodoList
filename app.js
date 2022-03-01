@@ -1,5 +1,15 @@
 let add = document.querySelector("form button");
 let section = document.querySelector("section");
+let form = document.querySelector("form");
+// add event to add New Todo
+let addNewButton = document.querySelector("button#addNew");
+addNewButton.addEventListener("click", (e) => {
+  // form.style = "transition: 0.5s ease" // cannot make it slower *needs to fixed
+  form.classList.toggle("show");
+});
+
+// form listener
+
 add.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -14,6 +24,7 @@ add.addEventListener("click", (e) => {
   console.log(title);
 
   // data validation in the form
+  // todo detail is not mandatory in this form
   if (
     title === "" ||
     !(parseInt(month) >= 1 && parseInt(month) <= 12) ||
@@ -49,12 +60,12 @@ add.addEventListener("click", (e) => {
 
   let todoDetail = document.createElement("p");
   todoDetail.classList.add("todoDetail");
-    if (detail == "") {
-        todoDetail.innerText = "No detail of this event.";
-        todoDetail.style = "font-size: 1.25rem; color: gray;"
-    } else {
-        todoDetail.innerText = detail;
-    }
+  if (detail == "") {
+    todoDetail.innerText = "No detail of this event.";
+    todoDetail.style = "font-size: 1.25rem; color: gray;";
+  } else {
+    todoDetail.innerText = detail;
+  }
 
   todo.appendChild(todoTitle);
   todo.appendChild(todoDate);
@@ -97,7 +108,33 @@ add.addEventListener("click", (e) => {
   todo.appendChild(completeButton);
   todo.appendChild(trashButton);
 
+  //style todo animation
   todo.style.animation = "scaleUp 0.3s forwards";
+
   //   todo.appendChild(todoDetail);
   section.appendChild(todo);
-});
+
+  // store data to local storage
+  let myList = {
+    title: title,
+    month: month,
+    date: date,
+    hour: hour,
+    minute: minute,
+    detail: detail,
+  };
+  let oldList = localStorage.getItem("list");
+  if (oldList == null) {
+    localStorage.setItem("list", JSON.stringify([myList]));
+  } else {
+    let oldListParse = JSON.parse(oldList);
+    oldListParse.push(myList);
+    localStorage.setItem("list", JSON.stringify(oldListParse));
+  }
+
+  console.log(JSON.parse(localStorage.getItem("list")));
+}); // end of add new todo list (form button)
+
+
+// load localStorage
+

@@ -6,7 +6,8 @@
 }
 
 header {
-  height: 20vh;
+  height: 23vh;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,12 +16,29 @@ header h1 {
   color: white;
   font-size: 3.5rem;
 }
+header button#addNew {
+  margin-top: 2.5vh;
+  display: flex;
+  justify-content: center;
+  background-color: #6511b4;
+  border: solid 0.3px #4b0b88;
+  border-radius: 15px;
+  padding: 0.35rem 0.6rem;
+  font-size: 1.25rem;
+  color: white;
+}
+header button#addNew:hover {
+  background-color: #45097e;
+}
+header button#addNew:active {
+  background-color: #32075a;
+}
 
 body {
   background: linear-gradient(90deg, #6818b9, #898ef6);
 }
 body form {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -69,8 +87,11 @@ body form button {
 body form button:hover {
   background-color: #131471;
 }
+body form.show {
+  display: flex;
+}
 body section {
-  margin-top: 5vh;
+  margin-top: 3vh;
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -6,13 +6,34 @@
 }
 // to center the h1
 header {
-  height: 20vh;
+  height: 23vh;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
   h1 {
     color: white;
     font-size: 3.5rem;
+  }
+
+  button#addNew {
+    margin-top: 2.5vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(101, 17, 180);
+    border: solid 0.3px rgb(75, 11, 136);
+    border-radius: 15px;
+    padding: 0.35rem 0.6rem;
+    font-size: 1.25rem;
+    color: white;
+  }
+
+  button#addNew:hover{
+    background-color: rgb(69, 9, 126);
+  }
+
+  button#addNew:active{
+      background-color: rgb(50, 7, 90);
   }
 }
 
@@ -22,8 +43,9 @@ body {
     $bodyBackgroundColorFrom,
     $bodyBackgroundColorTo
   );
+
   form {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     div {
@@ -82,9 +104,11 @@ body {
       background-color: $buttonBackgroundColorHover;
     }
   }
-
+  form.show{
+      display: flex;
+  }
   section {
-    margin-top: 5vh;
+    margin-top: 3vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -110,7 +134,7 @@ body {
     p.todoTitle {
       width: 10vw;
     }
-// styling after click event, shows the detail of todo items
+    // styling after click event, shows the detail of todo items
     div.detail {
       p.todoDetail {
         display: block;

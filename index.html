@@ -18,19 +18,48 @@
   <body>
     <header>
       <h1>Todo List</h1>
+      <button id="addNew">Add New Todo</button>
     </header>
 
     <form action="">
       <div class="formFrame">
         <label for="title">Event</label>
-        <input type="text" id="title" value = "Learning" required />
+        <input type="text" id="title" value="Learning" required />
         <div id="date">
-          <input type="number" min="1" max="12" placeholder="Month" value = "1" required />
-          <input type="number" min="1" max="31" placeholder="Day" value = "2" required />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            placeholder="Month"
+            value="1"
+            required
+          />
+          <input
+            type="number"
+            min="1"
+            max="31"
+            placeholder="Day"
+            value="2"
+            required
+          />
         </div>
         <div id="time">
-          <input type="number" min="0" max="24" placeholder="Hour" required value="12">
-          <input type="number" min="0" max="60" placeholder="Minute" required value="00">
+          <input
+            type="number"
+            min="0"
+            max="24"
+            placeholder="Hour"
+            required
+            value="12"
+          />
+          <input
+            type="number"
+            min="0"
+            max="60"
+            placeholder="Minute"
+            required
+            value="00"
+          />
         </div>
         <label for="detail">Detail</label>
         <textarea name="detail" id="detail" cols="11" rows="5"></textarea>
