@@ -36,12 +36,12 @@ add.addEventListener("click", (e) => {
     return;
   }
   // delete the original text in inputs
-  form.children[1].value = "";
-  form.children[2].children[0].value = "";
-  form.children[2].children[1].value = "";
-  form.children[3].children[0].value = "";
-  form.children[3].children[1].value = "";
-  form.children[5].value = "";
+  //   form.children[1].value = "";
+  //   form.children[2].children[0].value = "";
+  //   form.children[2].children[1].value = "";
+  //   form.children[3].children[0].value = "";
+  //   form.children[3].children[1].value = "";
+  //   form.children[5].value = "";
 
   // create a todo
   let todo = document.createElement("div");
@@ -92,9 +92,9 @@ add.addEventListener("click", (e) => {
   trashButton.addEventListener("click", (e) => {
     let todoItem = e.target.parentElement;
     todoItem.addEventListener("animationend", () => {
-      todoItem.classList.toggle("detail");
+      todoItem.remove();
     });
-    todoItem.style.animation = "scaleDown 0.25s forwards";
+    todoItem.style.animation = "scaleDown 0.36s forwards";
   });
 
   // add function of show detail when click paragraph
@@ -135,6 +135,80 @@ add.addEventListener("click", (e) => {
   console.log(JSON.parse(localStorage.getItem("list")));
 }); // end of add new todo list (form button)
 
-
 // load localStorage
 
+let myList = localStorage.getItem("list");
+if (myList !== null) {
+  myListArray = JSON.parse(myList);
+  myListArray.forEach((data) => {
+    let todo = document.createElement("div");
+    todo.classList.add("todo");
+    let todoTitle = document.createElement("p");
+    todoTitle.classList.add("todoTitle");
+    todoTitle.innerText = data.title;
+
+    let todoDate = document.createElement("p");
+    todoDate.classList.add("todoDate");
+    todoDate.innerText = data.month + " / " + data.date;
+
+    let todoTime = document.createElement("p");
+    todoTime.classList.add("todoTime");
+    todoTime.innerText = data.hour + ":" + data.minute;
+
+    let todoDetail = document.createElement("p");
+    todoDetail.classList.add("todoDetail");
+    if (e.detail == "") {
+      todoDetail.innerText = "No detail of this event.";
+      todoDetail.style = "font-size: 1.25rem; color: gray;";
+    } else {
+      todoDetail.innerText = data.detail;
+    }
+
+    todo.appendChild(todoTitle);
+    todo.appendChild(todoDate);
+    todo.appendChild(todoTime);
+    todo.appendChild(todoDetail);
+
+    //create green check and trash can
+    let completeButton = document.createElement("button");
+    completeButton.classList.add("complete");
+    completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+    let trashButton = document.createElement("button");
+    trashButton.classList.add("trash");
+    trashButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
+    // add event listerner to complete button
+    completeButton.addEventListener("click", (e) => {
+      console.log(e.target.parentElement);
+      todo.classList.toggle("done");
+      // if there is done inside, delete the 'done' class. Otherwise, add 'done' inside the classList.
+    });
+
+    // add event listener to trash button
+    trashButton.addEventListener("click", (e) => {
+      let todoItem = e.target.parentElement;
+      todoItem.addEventListener("animationend", () => {
+        todoItem.remove();
+      });
+      todoItem.style.animation = "scaleDown 0.36s forwards";
+    });
+
+    // add function of show detail when click paragraph
+    todo.addEventListener("click", (e) => {
+      let todoDiv = e.target.parentElement;
+      //   todoDiv.classList.toggle("detail");
+      todo.classList.toggle("detail");
+    });
+
+    // combine button into todo div
+    todo.appendChild(completeButton);
+    todo.appendChild(trashButton);
+
+    //style todo animation
+    todo.style.animation = "scaleUp 0.3s forwards";
+
+    //   todo.appendChild(todoDetail);
+    section.appendChild(todo);
+  });
+}
