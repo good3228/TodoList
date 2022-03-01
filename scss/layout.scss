@@ -21,19 +21,19 @@ header {
     display: flex;
     justify-content: center;
     background-color: rgb(101, 17, 180);
-    border: solid 0.3px rgb(75, 11, 136);
+    border: solid 0.3px rgb(1, 5, 73);
     border-radius: 15px;
-    padding: 0.35rem 0.6rem;
+    padding: 0.45rem 0.68rem;
     font-size: 1.25rem;
     color: white;
   }
 
-  button#addNew:hover{
+  button#addNew:hover {
     background-color: rgb(69, 9, 126);
   }
 
-  button#addNew:active{
-      background-color: rgb(50, 7, 90);
+  button#addNew:active {
+    background-color: rgb(50, 7, 90);
   }
 }
 
@@ -44,6 +44,28 @@ body {
     $bodyBackgroundColorTo
   );
 
+  div.function {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      background-color: rgb(102, 1, 149);
+      width: 12rem;
+      color: white;
+      margin: 5px;
+      font-size: 1.25rem;
+      border: black solid 0.1px;
+      border-radius: 10px;
+    }
+
+    button:hover{
+        background-color: rgb(85, 0, 124);
+    }
+
+    button:active{
+        background-color: rgb(58, 0, 85);
+    }
+  }
   form {
     display: none;
     justify-content: center;
@@ -104,8 +126,8 @@ body {
       background-color: $buttonBackgroundColorHover;
     }
   }
-  form.show{
-      display: flex;
+  form.show {
+    display: flex;
   }
   section {
     margin-top: 3vh;

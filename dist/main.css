@@ -21,9 +21,9 @@ header button#addNew {
   display: flex;
   justify-content: center;
   background-color: #6511b4;
-  border: solid 0.3px #4b0b88;
+  border: solid 0.3px #010549;
   border-radius: 15px;
-  padding: 0.35rem 0.6rem;
+  padding: 0.45rem 0.68rem;
   font-size: 1.25rem;
   color: white;
 }
@@ -36,6 +36,25 @@ header button#addNew:active {
 
 body {
   background: linear-gradient(90deg, #6818b9, #898ef6);
+}
+body div.function {
+  display: flex;
+  flex-direction: column;
+}
+body div.function button {
+  background-color: #660195;
+  width: 12rem;
+  color: white;
+  margin: 5px;
+  font-size: 1.25rem;
+  border: black solid 0.1px;
+  border-radius: 10px;
+}
+body div.function button:hover {
+  background-color: #55007c;
+}
+body div.function button:active {
+  background-color: #3a0055;
 }
 body form {
   display: none;
