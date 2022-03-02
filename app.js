@@ -36,12 +36,12 @@ add.addEventListener("click", (e) => {
     return;
   }
   // delete the original text in inputs
-  //   form.children[1].value = "";
-  //   form.children[2].children[0].value = "";
-  //   form.children[2].children[1].value = "";
-  //   form.children[3].children[0].value = "";
-  //   form.children[3].children[1].value = "";
-  //   form.children[5].value = "";
+    form.children[1].value = "";
+    form.children[2].children[0].value = "";
+    form.children[2].children[1].value = "";
+    form.children[3].children[0].value = "";
+    form.children[3].children[1].value = "";
+    form.children[5].value = "";
 
   // create a todo
   let todo = document.createElement("div");
@@ -313,3 +313,4 @@ exampleButton.addEventListener("click", (event) => {
   xhr.open("GET", "./data/todos.json");
   xhr.send();
 });
+

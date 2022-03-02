@@ -18,20 +18,21 @@
   <body>
     <header>
       <h1>Todo List</h1>
+      <button class="example">Generate examples</button>
       <button id="addNew">Add New Todo</button>
+      
     </header>
 
     <form action="">
       <div class="formFrame">
         <label for="title">Event</label>
-        <input type="text" id="title" value="Learning" required />
+        <input type="text" id="title" required />
         <div id="date">
           <input
             type="number"
             min="1"
             max="12"
             placeholder="Month"
-            value="1"
             required
           />
           <input
@@ -39,7 +40,6 @@
             min="1"
             max="31"
             placeholder="Day"
-            value="2"
             required
           />
         </div>
@@ -50,7 +50,6 @@
             max="24"
             placeholder="Hour"
             required
-            value="12"
           />
           <input
             type="number"
@@ -58,7 +57,6 @@
             max="60"
             placeholder="Minute"
             required
-            value="00"
           />
         </div>
         <label for="detail">Detail</label>
@@ -66,10 +64,9 @@
         <button>Add into List</button>
       </div>
     </form>
-    <div class="function">
-      <button class="example">Generate todos</button>
-      <button class="sort">Sort by date</button>
-    </div>
+
+      
+
     <section></section>
   </body>
   <script src="./app.js"></script>

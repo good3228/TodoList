@@ -6,7 +6,7 @@
 }
 
 header {
-  height: 23vh;
+  height: 25vh;
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -16,12 +16,27 @@ header h1 {
   color: white;
   font-size: 3.5rem;
 }
+header button.example {
+  background-color: #4d0ba3;
+  color: white;
+  margin-top: 25px;
+  font-size: 1rem;
+  padding: 0.3rem;
+  border: black solid 0.1px;
+  border-radius: 10px;
+}
+header button.example:hover {
+  background-color: #55007c;
+}
+header button.example:active {
+  background-color: #3a0055;
+}
 header button#addNew {
-  margin-top: 2.5vh;
+  margin-top: 3.5vh;
   display: flex;
   justify-content: center;
   background-color: #6511b4;
-  border: solid 0.3px #010549;
+  border: solid 0.3px white;
   border-radius: 15px;
   padding: 0.45rem 0.68rem;
   font-size: 1.25rem;
@@ -35,26 +50,10 @@ header button#addNew:active {
 }
 
 body {
-  background: linear-gradient(90deg, #6818b9, #898ef6);
-}
-body div.function {
   display: flex;
   flex-direction: column;
-}
-body div.function button {
-  background-color: #660195;
-  width: 12rem;
-  color: white;
-  margin: 5px;
-  font-size: 1.25rem;
-  border: black solid 0.1px;
-  border-radius: 10px;
-}
-body div.function button:hover {
-  background-color: #55007c;
-}
-body div.function button:active {
-  background-color: #3a0055;
+  align-items: center;
+  background: linear-gradient(90deg, #6818b9, #898ef6);
 }
 body form {
   display: none;
